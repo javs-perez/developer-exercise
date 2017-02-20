@@ -1,0 +1,32 @@
+<div class='game'>
+  <h1>Blackjack Game</h1>
+  <span>Dealer stays at 16 or higher</span>
+  <div class="winner">
+    <h2>Winner</h2>
+    <strong><%= @game.status[:winner].to_s.titleize %></strong>
+  </div>
+  <div class="player_hand">
+    <h2>Player Hand</h2>
+    <h3>Hand Value  <span><%= @game.player_hand.value %></span></h3>
+    <div class="player_hand_cards">
+      <% @game.player_hand.cards.each_with_index do |card, index| %>
+        <div id="player_card<%= index %>">
+          <%= "#{CARD_VALUES[card.name]}#{CARD_SUITS[card.suite]}" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="dealer_hand">
+    <h2>Dealer Hand</h2>
+    <h3>Hand Value  <span><%= @game.dealer_hand.value %></span></h3>
+    <% @game.dealer_hand.cards.each_with_index do |card, index| %>
+      <div id="dealer_card<%= index %>">
+        <%= "#{CARD_VALUES[card.name]}#{CARD_SUITS[card.suite]}" %>
+      </div>
+    <% end %>
+  </div>
+  <div class='actions'>
+    <h3>Actions</h3>
+    <%= link_to 'New Game', new_blackjack_game_path %>
+  </div>
+</div>

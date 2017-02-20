@@ -1,0 +1,6 @@
+$(".player_hand_cards").empty()
+$(".player_hand_value").html("<h3>Hand Value  <span><%= @game.player_hand.value %></span></h3>")
+$(".actions").html("<%= j render 'actions' %>")
+<% @game.player_hand.cards.each_with_index do |card, index| %>
+  $(".player_hand_cards").append('<div><%= "#{CARD_VALUES[card.name]}#{CARD_SUITS[card.suite]}" %></div>')
+<% end %>

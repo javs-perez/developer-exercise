@@ -1,0 +1,4 @@
+$(".dealer_hand_cards").empty()
+<% @game.dealer.cards.each_with_index do |card, index| %>
+  $(".dealer_hand_cards").append('<div><%= "#{CARD_VALUES[card.name]}#{CARD_SUITS[card.suite]}" %></div>')
+<% end %>

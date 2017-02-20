@@ -1,0 +1,7 @@
+<h3>Actions</h3>
+<% if @game.player_hand.value < 22 %>
+  <%= link_to 'Hit', blackjack_games_hit_path, remote: true, method: :post %>
+  <%= link_to 'Stand', blackjack_games_stand_path, method: :post %>
+<% else %>
+  <%= link_to 'New Game', new_blackjack_game_path %>
+<% end %>

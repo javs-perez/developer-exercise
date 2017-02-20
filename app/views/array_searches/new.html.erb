@@ -1,0 +1,27 @@
+<div>
+  Sample of Array of Hashes<br><br>
+  <code>
+    [<br>
+      {"name": "Juan", "age": 25, "city": "Chicago"},<br>
+      {"name": "Nick", "age": 45, "city": "Miami"},<br>
+      {"name": "Tobias", "age": 32, "city": "New York"},<br>
+      {"name": "John", "age": 34, "city": "Denver"},<br>
+      {"name": "Javier", "age": 23, "city": "Los Angeles"}<br>
+    ]<br>
+  </code><br>
+  Sample Query<br><br>
+  <code>
+    {"name": "Javier", "age": 23}<br>
+  </code><br>
+</div>
+
+<%= form_tag '/array_searches', remote: true do -%>
+  <div><%= label_tag 'Array of Hashes' %></div>
+  <%= text_area_tag :array_of_hashes, nil, rows: 10, cols: 25 %>
+  <div><%= label_tag 'Query' %></div>
+  <%= text_area_tag :query, nil, rows: 2, cols: 25 %>
+  <div><%= submit_tag 'submit' %></div>
+<% end -%>
+
+<div id='query'>
+</div>

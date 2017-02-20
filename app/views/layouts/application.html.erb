@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BenchPrep</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class:'nav-div'>
+    <nav>
+      <ul class='no_style'>
+        <li class='nav-link'><%= link_to 'Home', root_path %></li>
+        <li class='nav-link'><%= link_to 'Quotes', quotes_path %></li>
+        <li class='nav-link'><%= link_to 'Where', new_array_search_path %></li>
+        <li class='nav-link'><%= link_to 'Blackjack', new_blackjack_game_path %></li>
+      </ul>
+    </nav>
+  </div>
+
+  <%= yield %>
+
+</body>
+</html>

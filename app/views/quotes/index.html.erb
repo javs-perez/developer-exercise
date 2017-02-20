@@ -1,0 +1,20 @@
+<div id="quotes"></div>
+
+<% if params[:page].to_i > 1 %>
+  <%= link_to 'Prev', quotes_path(page: params[:page].to_i - 1) %>
+<% end %>
+
+<% if params[:page].to_i == 0 %>
+  <%= link_to 'Next', quotes_path(page: params[:page].to_i + 2) %>
+<% else %>
+  <%= link_to 'Next', quotes_path(page: params[:page].to_i + 1) %>
+<% end %>
+
+<script type="text/javascript">
+  $(function() {
+    window.router = new BenchPrep.Routers.QuotesRouter(
+      {page: <%= params[:page] || 1 %>, per_page: <%= params[:per_page] || 15 %>, quotes: <%= @quotes.to_json.html_safe -%>}
+    );
+    Backbone.history.start();
+  });
+</script>
