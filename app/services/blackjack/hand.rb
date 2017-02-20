@@ -32,7 +32,7 @@ module Blackjack
     end
 
     def play_as_dealer(deck)
-      if value < 16
+      if value < 17
         hit!(deck)
         play_as_dealer(deck)
       end
